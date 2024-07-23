@@ -3,10 +3,17 @@ import pickle
 import numpy as np
 import pandas as pd
 
-popular_df = pd.read_pickle(open('popular.pkl', 'rb'))
-pt = pd.read_pickle(open('pt.pkl', 'rb'))
-books = pd.read_pickle(open('books.pkl', 'rb'))
-similarity_scores = pd.read_pickle(open('similarity_scores.pkl', 'rb'))
+with open('popular.pkl', 'rb') as file:
+    popular_df = pd.read_pickle(file)
+
+with open('pt.pkl', 'rb') as file1:
+    pt = pd.read_pickle(file1)    
+
+with open('books.pkl', 'rb') as file2:
+    books = pd.read_pickle(file2)
+
+with open('similarity_scores.pkl', 'rb') as file3:
+    similarity_scores = pd.read_pickle(file3)
 
 app = Flask(__name__)
 @app.route('/')
